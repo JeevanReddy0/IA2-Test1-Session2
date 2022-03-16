@@ -4,35 +4,36 @@ int input_number()
   int n;
   printf("Enter a number: \n");
   scanf("%d",&n);
-    return n;
+  return n;
 }
 int is_composite(int n)
 {
-  for(int i=2;i<n/2;i++)
+   int i,flag=0;
+    if(n==0||n==1)
+    return 2;
+  else
+  {
+  for (i = 2; i <= n / 2; ++i)
+  {
+    if (n % i == 0) 
     {
-      int result=n%i;
-      if(result==0)
-      {
-        return 0;
-      }
-      if(result!=0)
-      {
-        return 1;
-      }
-    return result;
+      flag = 1;
+      break;
     }
+  }
+    return flag;  
+  }
 }
+  
 void output(int n,int composite)
 {
-  int result;
-  if(result==0)
-  {
-    printf("The number %d is composite",n);
-  }
-  if(result==1)
-  {
-    printf("The number is a prime number");
-  }
+ 
+  if(composite==0)
+  printf("The number %d is prime number",n);
+  else if(composite==1)
+  printf("The number %d is composite number",n);
+  else
+  printf("The number 0 & 1 is neither prime nor composite number");
 }
 int main()
 {
@@ -42,4 +43,5 @@ int main()
   output(n,composite);
   return 0;
 }
+
 
