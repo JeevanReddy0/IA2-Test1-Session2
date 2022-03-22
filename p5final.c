@@ -10,21 +10,13 @@ int input()
 
 int find_gcd(int a, int b)
 {
-  int gcd,t;
-  if( a >b)
-  {
-    t = a;
-    a = b;
-    b = t;
-  }
-  if ( b%a == 0)
-    return a;
-  for(int i=2; i<a/2; i++)
-  {
-    if ( a%i==0 && b%i==0)
-      gcd = i;
-  }
-  return gcd;
+  int r;
+  for(int i=1;i<=a && i<=b;i++)
+    {
+      if(a%i==0 && b%i==0)
+        r=i;
+    }
+  return r;
 }
 
 void output(int a, int b, int gcd)
